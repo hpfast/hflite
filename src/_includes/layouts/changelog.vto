@@ -1,0 +1,17 @@
+---
+layout: layouts/wrapper.vto
+---
+
+<h1>{{title}}</h1>
+
+{{console.log( page.data.url)}}
+
+{{- content -}}
+
+<!-- {{set items = search.pages("url^=/changelog/", "date=desc").filter(item => item.page.data.url !== "/changelog/")}} -->
+{{set items = search.pages("url^=/changelog level!=index ", "date=desc")}}
+{{ for item of items }}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+
+{{page.data.notes |> md}}

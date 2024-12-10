@@ -1,0 +1,22 @@
+{{import {nextPrev} from 'functions/next_prev_links.vto'}}
+{{if on_homepage}}
+<p class="metadata-paragraph">Latest article</p>
+{{/if}}
+
+
+<h2>{{item.title}}</h2>
+{{if item.page.data.translated }}
+  {{set translation = search.page("id="+item.page.data.translated)}}
+  {{if translation }}
+  <p class="emphasis">{{langnames[translation.page.data.lang]["translated_as"]}}/{{langnames[lang]["translated_as"]}}: <a href="{{translation.url}}">{{translation.page.data.title}}</a></p>
+  {{/if}}
+{{else if item.page.data.translates }}
+  {{set translation=search.page("id="+item.page.data.translates)}}
+  {{if translation }}
+  {{console.log(translations)}}
+  <p class="emphasis"> {{langnames[lang]["translation_of"]}}/{{langnames[translation.page.data.lang]["translation_of"]}}: <a href="{{translation.url}}">{{translation.page.data.title}}</a></p>
+  {{/if}}
+{{/if}}
+{{item.content |> md}}
+{{nextPrev(item.url, 'url^=/articles')}}
+

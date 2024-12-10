@@ -1,0 +1,225 @@
+@import 'styles/global/variables.css';
+@import 'styles/global/global.css';
+@import 'styles/global/typography.css';
+@import 'styles/comp/space.css';
+@import 'styles/header.css';
+@import 'styles/footer.css';
+
+/*A single top-level import of design tokens suffices.
+ * All @import-ed files have access to the `tkn()` function,
+ * because design-tokens processes all @design-tokens declarations
+ * in one go and thus they are available to entire final CSS.*/
+@design-tokens url('./design-tokens.json') format('style-dictionary3');
+
+/*Reset links!*/
+a {
+  outline-color: transparent;
+}
+
+a:link {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--link-color-visited);
+}
+
+a:focus {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+a:hover , a:hover p, a:hover h3{
+  color: var(--link-color-hover);
+}
+a:hover:visited , a:visited:hover p, a:visited:hover h3{
+  color: tkn('colors.blue');
+}
+
+a:active {
+  color: tkn('colors.white');
+}
+
+.grid-item:hover{
+  background-color:  tkn('colors.blue');
+}
+
+/*override link styling in page header*/
+header {
+  & a:link {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  & a:visited {
+    color: var(--link-color);
+  }
+
+  & a:focus {
+    text-decoration: none;
+    color: var(--link-color);
+  }
+
+  & a:hover , a:hover p, a:hover h3{
+    color: tkn('colors.rust');
+    text-decoration: underline;
+  }
+
+  & a:active {
+    background-color:  var(--link-color);
+    color: tkn('colors.white');
+  }
+
+  & a.current {
+      font-weight: bold;
+      text-decoration: underline;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+  
+
+
+/*Set the max width of the body ...
+ * incompatible with later grid-based wrapping*/
+main, .wrapper {
+  max-width: calc(var(--space-3xl) * 4.5);
+  width: 90vw;
+  margin: 0 auto;
+  /*hyphens: auto;*/
+}
+
+
+main {
+  flex: 1
+}
+
+main img {
+  max-width: 100%;
+}
+
+
+
+.item_layout a:hover img{
+  transition: all 300ms ease-out;
+}
+
+
+.item_layout a:hover img{
+  transform: scale(1.04)
+}
+
+.footnotes {
+  font-size: var(--step--1);
+
+  & h2 {
+    font-size: var(--step-1);
+  }
+}
+
+.next-prev-links {
+  font-size: var(--step--1);
+  margin-block-start: var(--space-xl);
+  margin-block-end: var(--space-xl);
+  
+  & > * {
+    max-width: 100%;
+    min-width: 30%;
+    width: calc((500px - 100%) * 999);
+  }
+}
+
+
+
+.flex {
+  display: flex;
+}
+.stretch {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+
+.article-list {
+  gap: var(--space-l);
+}
+
+.article-list > :last-child {
+  flex-grow: 1;
+  max-width: 50%;
+  text-align: end;
+}
+
+/*metadata paragraph should hug closer to next (override stack/flow spacing)*/
+.metadata-paragraph {
+  font-size: var(--step--1);
+  margin-block-end: var(--space-2xs);
+  font-style: italic;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 3px 7px;
+  max-width: fit-content;
+}
+.metadata-paragraph + * {
+  margin-block-start: 0;
+  line-height: 1.1em;
+}
+
+.draft-content{
+  border-left: 5px solid #eee;
+  border-right: 5px solid #eee;
+  padding: 0 3px;
+}
+
+.draft-content p {
+  color: #555;
+}
+
+.draft-content summary{
+  color: #bbb;
+  background-color: #eee;
+}
+
+.draft-content details[open]::after {
+  color: #bbb;
+  display: block;
+  content: 'END DRAFT MATERIAL';
+  text-align: center;
+  background-color: #eee;
+}
+
+.note-content {
+  border-left: 5px solid red;
+  border-right: 5px solid red;
+  padding: 0 3px;
+
+}
+.note-content::before  {
+  display: block;
+  content: 'PRIVATE NOTES';
+  text-align: center;
+  background-color: red;
+}
+
+#lang-toggle {
+  display: none;
+}
+.lang-toggle-container {
+  display: flex;
+
+  & * {
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  
+}
+
+
+

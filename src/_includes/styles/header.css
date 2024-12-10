@@ -1,0 +1,77 @@
+/*.header_layout {*/
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*justify-content: space-between;*/
+  /*align-items:  baseline;*/
+/*}*/
+
+header {
+  background-image: url('/static/img/water1.jpg');
+  background-image: url('/static/media/boot_demo_2048.jpg');
+  background-size: cover;
+  background-position-y: center;
+  background-position-x: left;
+}
+
+/*For images part of template, not content*/
+.template-img {
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+  max-width: var(--space-xl-2xl);
+}
+
+
+ul.menu {
+  background-color: tkn('colors.text.main');
+  list-style: none;
+}
+
+/*ul.menu li {*/
+  /*padding: 0 var(--space-2xs);*/
+/*}*/
+
+
+/*Now add flex for menu*/
+ul.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 var(--space-xs);
+}
+
+header > .wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+
+header > .wrapper > .logo-group {
+  min-width: 100px;
+  flex-grow: 1;
+
+}
+
+
+/*Could we make the menu wrap with the same kind of technique?*/
+
+nav {
+  max-width: 90%;
+}
+
+ul.menu {
+  width: 100%;
+  --modifier: calc(650px - 100%);
+}
+ul.menu li {
+  min-width: fit-content;
+  flex-grow: 1;
+  padding: var(--space-xs);
+  flex-basis: calc(var(--modifier) * 999);
+}
+
+
+
+/*I think the menu needs some breakpointing ...*/

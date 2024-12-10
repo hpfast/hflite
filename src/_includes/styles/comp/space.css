@@ -1,0 +1,61 @@
+/*stack: vertical spacing between elements*/
+
+/*.stack * {*/
+  /*margin-block-end: 0;*/
+/*}*/
+
+/*The basics of stacking or flow. All 'joining' elements get a leading margin of line-height.*/
+.stack > * + * {
+  --space: var(--line-height);
+  margin-block-start:  var(--space);
+}
+
+h1, h2, h3, h4, h5 {
+  margin-block-end: calc(var(--space) * 0.58);
+}
+
+
+/*In the following, we will override this setting for flow items which should  have more spacing.
+ * This is mostly headings.
+ * instead of growing from line-height, though, we are going to use the utopia-generated fluid space variables.
+ * The key is that the --space variable gets reassigned for each type.*/
+
+
+.stack h1{
+  --space: var(--space-xl-2xl);
+}
+
+
+/*.stack h1 + * {*/
+  /*--space: calc(var(--space) * 0.666);*/
+/*}*/
+.stack h2{
+  --space: var(--space-l-xl);
+}
+
+/*.stack h2 + * {*/
+  /*--space: calc(var(--space) * 0.666);*/
+/*}*/
+
+.stack h3 {
+  --space: var(--space-l);
+}
+
+/*.stack h3 + * {*/
+  /*--space: calc(var(--space) * 0.666);*/
+
+/*}*/
+
+
+.stack h4 {
+  --space: var(--space-m);
+}
+
+/*.stack h4 + * {*/
+  /*--space: calc(var(--space) * 0.666)*/
+/*}*/
+
+/*This special case seems necessary because the * + * selector doesn't match the first item.*/
+.stack > :nth-child(1) {
+  margin-block-start: var(--space);
+}

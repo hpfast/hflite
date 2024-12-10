@@ -1,0 +1,8 @@
+layout: layouts/page.vto
+articles_path: articles
+notes_path: notes
+nl:
+  articles_path: artikelen
+  notes_path: notities
+# url: '/${page.data.lang}/${articles_path}/${page.data.slug}'
+

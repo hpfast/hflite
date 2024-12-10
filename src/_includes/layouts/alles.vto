@@ -1,0 +1,32 @@
+---
+layout: layouts/wrapper.vto
+---
+
+<h1>{{title}}</h1>
+
+<h2>Artikelen</h2>
+<p>in volgorde van datum</p>
+
+<p class="metadata-paragraph"><span>EN:</span>See the list of English articles <a href="/everything">here</a></p>
+{{for item of search.pages("url^=/nl/articles lang=nl", "date=desc")}}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+
+
+<h2>Notes</h2>
+<p>(Mostly in English)</p>
+<p>by date</p>
+
+{{for item of search.pages("url^=/notes", "date=desc")}}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+
+<h2>Andere Pagina's</h2>
+
+
+{{for item of search.pages("!url^=/articles !url^= !url^=/notes !url^=/changelog")}}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+
+
+

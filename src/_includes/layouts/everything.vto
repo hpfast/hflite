@@ -1,0 +1,31 @@
+---
+layout: layouts/wrapper.vto
+---
+
+<h1>{{title}}</h1>
+
+<h2>Articles</h2>
+<p>by date</p>
+
+<p class="metadata-paragraph"><span>🇳🇱</span> Zie ook de lijst van alle Nederlandse artikelen <a href="/alles">hier</a></p>
+{{for item of search.pages("url^=/articles lang=en", "date=desc")}}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+
+
+<h2>Notes</h2>
+<p>by date</p>
+
+{{for item of search.pages("url^=/notes", "date=desc")}}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+
+<h2>Other pages</h2>
+
+
+{{for item of search.pages("!url^=/articles !url^=/notes !url^=/changelog !url^=/nl/")}}
+<p class="flex stretch | article-list"><a href="{{item.url}}">{{item.title}}</a><span>{{item.date |> date('DATE')}}</span></p>
+{{/for}}
+<p class="flex stretch | article-list"><a href="/changelog/">Changelog</a></p>
+
+

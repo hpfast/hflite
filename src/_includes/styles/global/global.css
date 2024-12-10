@@ -1,0 +1,9 @@
+html {
+  background-color: tkn('colors.mist');
+}
+body {
+  color: tkn('colors.dark');
+  padding: 0 3px;
+  line-height: var(--line-height);
+}
+

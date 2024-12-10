@@ -1,0 +1,22 @@
+{{export function nextPrev (url, query) }}
+{{ set prev = search.previousPage(url, query) }}
+{{ set next = search.nextPage(url, query) }}
+
+<div class="next-prev-links | flex stretch flex-wrap">
+  {{if prev }}
+    <a href="{{prev.url}}" rel="prev">previous: {{prev.title}}</a>
+  {{else}}
+    <p></p>
+  {{/if}}
+  <a class="everything-link" href="/everything/">Everything</a>
+  {{if next }}
+    <a href="{{next.url}}" rel="next">next: {{next.title}}</a>
+  {{else}}
+    <p></p>
+  {{/if}}
+</div>
+
+{{/export}}
+
+
+

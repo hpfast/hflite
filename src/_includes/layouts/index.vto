@@ -1,0 +1,9 @@
+---
+layout: layouts/wrapper.vto
+---
+
+      {{- content -}}
+
+      {{set item = search.page("url^=/articles", "date=desc")}}
+      {{include "partials/article.vto" {on_homepage: true} }}
+

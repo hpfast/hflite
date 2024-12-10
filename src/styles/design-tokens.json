@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "blue": {"value": "#4794d1"},
+    "mist": {"value": "#f3f3ef"},
+    "sea": {"value": "#6093ac"},
+    "dark": {"value": "#333333"}
+  },
+  "font": {
+    "size": {
+      "min": {"value": 16},
+      "max": {"value": 20},
+      "base": {"value": "16px"}
+    }
+  },
+  "leading": {
+    "flat": {"value": 1}, 
+    "fine": {"value": 1.38},
+    "standard": {"value": 1.5},
+    "loose":  {"value": 1.9}
+  },
+  "spacing":
+    {
+      "padding-inline": {"value": "1rem"},
+      "content-max": {"value": "900px"}
+    }
+}

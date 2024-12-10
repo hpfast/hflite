@@ -1,0 +1,21 @@
+---
+layout: layouts/wrapper.vto
+---
+
+{{- content -}}
+
+
+{{ set pages = search.pages("thread="+page.data.threadId) }}
+
+{{if pages }}
+
+{{for page of pages }}
+<p class="flex stretch | article-list"><a href="{{page.url}}">{{page.title}}</a></p>
+
+
+{{/for}}
+
+
+{{/if}}
+
+

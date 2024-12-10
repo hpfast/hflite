@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="alternate" type="application/rss+xml" href="/changelog/changelog.rss" title="hansfast.net Changelog RSS Feed">
+    <link rel="alternate" type="application/rss+xml" href="/everything.rss" title="hansfast.net Articles RSS Feed">
+  </head>
+  <body>
+
+    <header class="content-grid">
+
+      <div class="wrapper">
+        <div class="logo-group">
+          <a href="/">
+            <img class="template-img" alt="Logo" src="/static/img/a_logo2.svg">
+          </a>
+        </div>
+
+        <nav>
+          <ul class="menu">
+
+            <li>
+              <!--<a class="header-home-link" href="/">-->
+                <!--Home-->
+              <!--</a>-->
+            </li>
+            {{ for item of search.pages("frontpage=true") }}
+            <li><a href="{{item.url}}">{{item.title}}</a></li>
+            {{/for}}
+          </ul>
+        </nav>
+
+      </div>
+      <!--<img class="variable full-width wave" src="/static/img/wave.svg" inline/>-->
+    </header>
+
+    <main class="stack">
+
+      {{- content -}}
+
+    </main>
+
+    <footer>
+      <div class="wrapper">
+      <div>
+        <h1>Contact</h1>
+        {{ contact.text |> md }}
+      </div>
+      <div>
+        <h1>Subscribe</h2>
+        <p>
+          <a href="/changelog/changelog.rss">Summary of changes in Changelog format — RSS Feed</a>
+        </p>
+        <p>
+          <a href="/everything.rss">RSS Feed of Articles only</a>
+        </p>
+      </div>
+      </div>
+    </footer>
+
+
+  </body>
+
+</html>

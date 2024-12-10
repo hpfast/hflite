@@ -1,0 +1,16 @@
+{
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v2.1.4/"
+  },
+  "tasks": {
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+    "build": "deno task lume",
+    "serve": "deno task lume -s",
+    "deploy": "rsync -rvaz _site/ huur2:/home/hans/hansfast.net" 
+  },
+  "compilerOptions": {
+    "types": [
+      "lume/types.ts"
+    ]
+  }
+}

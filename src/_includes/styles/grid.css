@@ -1,0 +1,27 @@
+@design-tokens url('./design-tokens.json') format('style-dictionary3');
+
+:root {
+  --padding-inline: tkn('spacing.padding-inline');
+  --content-max-width: tkn('spacing.content-max-width');
+  --breakout-max-width: calc(var(--content-max-width) + 250px);
+
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
+
+}
+
+.content-grid {
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+}
